@@ -1,0 +1,34 @@
+data_conf:
+  dataset: 'multi' # multi, pers 
+  train_split: 0.8
+
+directories:
+  root_direct: ''
+  export_dir: './saved_model'
+  checkpoint_path: 'models/training_1/cp-{epoch:04d}.ckpt'
+  checkpoint_path: 'training/'
+  eval_path: 'stats/'
+  pre_bert_cosonf: 'bert_cosonfig.json'
+  gs_folder_bert: 'gs://cloud-tpu-checkpoints/bert/v3/uncased_L-12_H-768_A-12/'
+  hub_url_bert: 'https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/3'
+  hub_preprocess: 'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3'
+  datasets:
+    ibm: 'ibm_claim_stance/claim_stance_dataset_v1.csv'
+    ibm_multi: 'ibm_multi/Machine Translations'
+    pers: 'perspectrum_dataset'
+
+model_conf:
+  model: 'bert_td' # bert, pd
+  state: 1 # 0 for pre-trained , 1 for fine-tuned
+  train: 0
+  evaluate: 0
+
+exec_conf:
+  sweep: 0
+  epochs: 2
+  batch_size: 16
+  train: 
+    lr: 2e-5
+    execute: 0
+  evaluate: 
+    execute: 1
