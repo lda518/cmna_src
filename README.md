@@ -1,8 +1,10 @@
 # cmna_src
 
-This repository contains the source code from the "Leveraging BERT Encodings for Open-Domain Stance Classification" CMNA paper and can be used for replication of results.
+This repository contains the source code for the "Leveraging BERT Encodings for Open-Domain Stance Classification" CMNA paper and can be used for replication of results.
 
-An implementation can be found of the base-BERT model for benchmarking, the novel variants presented in the paper and IBM's Project Debater's pro/con stance classifier.
+It includes an implementation of the base-BERT model, the novel variants described in the paper and IBM's Project Debater's pro/con stance classifier.
+
+Also included is a script which allows execution and evaluation of each of the models to be customized and ran easily from the terminal.
 
 ## Dependencies
 Start off by making sure all of the dependencies listed out in the requirements.txt file are installed.
@@ -27,23 +29,26 @@ Example for a jupyter notebook:
 os.environ['DEBATER_API_KEY']='API_key'
 ```
 
-## Usage
+## Script usage
 Start by entering the src folder:
 ```bash
 cd src
 ```
 The main.py script is used to run the system and works as follows:
-- The following two flags are necessary to specify:
-    - The -m flag accepts any number of arguments and specifies the model that should be trained. 
+- The following two flags are obligatory:
+    - The -m flag accepts any number of arguments and specifies the model/s that should be trained. 
         - The options are: bert, bert_syn_con, bert_syn_mul, bert_cos_con, bert_cos_mul, bert_cosyn_con, bert_cosyn_mul and pd
-    - The -d flag accepts any number of arguments and specifies the dataset which should be evaluated.
+    - The -d flag accepts any number of arguments and specifies the dataset/s the model/s should be run against.
         - The options are: pers, multi
 - The following flags are optional and allow for control of the execution:
-    - The -t flag specifies that the action performed should be to train the specified model on the specified dataset. (This returns an error if pd is selected as a model)
-    - The -e flag specifies that the action performed should be to evaluate the specified model against the specified dataset and to save the results in the stats folder.
-    - The -ep flag specifies the number of epochs to train for during the training loop. 
-    - The -b flag specifies that the models should be run without loading in any fine-tuned weights. 
+    - The -t flag specifies that the action performed should be to train the specified model/s on the specified dataset/s. (This returns an error if pd is selected)
+    - The -e flag specifies that the action performed should be to evaluate the specified model/s against the specified dataset/s and to save the results in the stats folder.
+    - The -ep flag specifies the number of epochs to train during the training loop. 
+    - The -b flag specifies that the model/s should be run without loading in any fine-tuned weights. 
+Any optional flags which are not explicitly declared will be initialized to their default values which can be found in config.yaml.
 
 Example:
 If I wanted to train the bert_cosyn_mul model for 10 epochs followed by an evaluation for both the pers and multi datasets, I would write the following:
+```bash
 python -t -e -m bert_cosyn_mul -d pers multi -ep 10
+```
