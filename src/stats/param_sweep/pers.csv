@@ -1,4 +1,0 @@
-Unnamed: 0,bert_syn_16_2e-5,bert_16_2e-5,bert_syncos_16_2e-5,bert_cos_16_2e-5,bert_syn_con_16_2e-5
-Prec.,0.75,0.73,0.53,0.51,0.53
-Recall,0.69,0.77,0.88,0.25,0.95
-F1,0.72,0.75,0.66,0.34,0.68
