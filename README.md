@@ -45,6 +45,7 @@ The main.py script is used to run the system and works as follows:
     - The -e flag specifies that the action performed should be to evaluate the specified model/s against the specified dataset/s and to save the results in the stats folder.
     - The -ep flag specifies the number of epochs to train during the training loop. 
     - The -b flag specifies that the model/s should be run without loading in any fine-tuned weights. 
+
 Any optional flags which are not explicitly declared will be initialized to their default values which can be found in config.yaml.
 
 Example:
