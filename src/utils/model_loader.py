@@ -7,9 +7,7 @@ from models.pd.stance_detector import Stance_detector
 import official.nlp.bert.configs
 import official.nlp.bert.bert_models
 from debater_python_api.api.debater_api import DebaterApi
-#from models.bert_model import Bert_model
 from models.subclassing_bert import Bert_model
-from models.bert import Bert
 
 class Model_loader:
     def __init__(self, config):
@@ -36,9 +34,6 @@ class Model_loader:
     def load_bert(self):
         bert_model = Bert_model(self.config)
         bert_model.build_model()
-        #bert_model.make_bert_preprocess_model(['my_input1', 'my_input2'])
-        #bert_model = Bert(self.config)
-        #bert_model.load_model()
         return bert_model
 
     def load_pd(self):

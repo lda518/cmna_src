@@ -3,6 +3,7 @@ from utils.cosine_comp import Cosine_comp
 from utils.data_saver import Data_saver
 import pandas as pd
 import numpy as np
+
 class Target_extractor:
     def __init__(self, config):
         self.text_processor = Text_processor()

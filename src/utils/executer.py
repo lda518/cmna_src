@@ -131,16 +131,6 @@ class Executer:
         f1 = self.get_f1(prec, recall)
         return {'prec.':prec, 'recall':recall, 'f1':f1}
 
-    #def get_stats(self, predictions, labels):
-    #    TP = tf.math.count_nonzero(predictions * labels)
-    #    TN = tf.math.count_nonzero((predictions-1) * (labels-1))
-    #    FP = tf.math.count_nonzero(predictions * (labels -1))
-    #    FN = tf.math.count_nonzero((predictions -1) * labels)
-    #    prec= self.get_precision(TP, FP)
-    #    recall = self.get_recall(TP, FN)
-    #    f1 = self.get_f1(prec, recall)
-    #    return np.round(np.array([prec, recall, f1]), 2)
-
     def get_precision(self, TP, FP):
         precision = np.round(TP / (TP + FP),2)
         return precision
